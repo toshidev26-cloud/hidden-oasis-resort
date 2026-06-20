@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hidden Oasis Resort — Your Secret Paradise in the Heart of Mindanao</title>
+<meta name="description" content="Hidden Oasis Resort — a secluded 3-star boutique resort & café bar in Gingoog City, Misamis Oriental. Lush gardens, a tropical pool, and 9 cozy rooms just minutes from Tiklas Falls." />
+<meta name="theme-color" content="#1e3a47" />
+
+<!-- Social preview -->
+<meta property="og:title" content="Hidden Oasis Resort — Gingoog City, Philippines" />
+<meta property="og:description" content="Your secret paradise in the heart of Mindanao. A boutique jungle escape near Tiklas Falls." />
+<meta property="og:type" content="website" />
+
+<!-- Favicon (inline leaf) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='15' fill='%231e3a47'/><ellipse cx='16.5' cy='16' rx='7' ry='9' fill='%23ffffff'/><path d='M9.5 21 a7 7 0 0 1 14 0 Z' fill='%23e8884a'/></svg>" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/* ============================================================
+   HIDDEN OASIS RESORT — single-file site
+   Brand palette (from logo):
+     deep teal-navy #1e3a47 · warm orange #e8884a
+     palm green #3a6b4f · ivory #f5f0e8
+   Fonts : Playfair Display (headings) · Lato (body)
+   ============================================================ */
+
+:root{
+  /* --- Brand colors (match the Hidden Oasis logo) --- */
+  --navy:#1e3a47;
+  --navy-deep:#142a34;
+  --navy-soft:#2c5260;
+  --orange:#e8884a;
+  --orange-dark:#d4733a;
+  --leaf:#3a6b4f;
+  --ivory:#f5f0e8;
+  --ivory-2:#ece4d6;
+  --text:#283a41;
+  --muted:#69767c;
+  --white:#ffffff;
+
+  /* Legacy aliases → mapped onto the brand palette so every rule recolors */
+  --green:var(--navy);
+  --green-deep:var(--navy-deep);
+  --green-soft:var(--navy-soft);
+  --gold:var(--orange);
+  --gold-dark:var(--orange-dark);
+
+  --radius:14px;
+  --radius-lg:24px;
+  --shadow-s:0 8px 24px rgba(20,42,52,.12);
+  --shadow-m:0 22px 50px rgba(20,42,52,.20);
+  --maxw:1180px;
+  --ease:cubic-bezier(.4,0,.2,1);
+
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Lato",-apple-system,Segoe UI,Roboto,sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:var(--sans);
+  color:var(--text);
+  background:var(--ivory);
+  line-height:1.7;
+  font-weight:400;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+.container{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:24px}
+
+h1,h2,h3,h4{font-family:var(--serif);color:var(--green);line-height:1.14;font-weight:700;letter-spacing:.2px}
+.h-section{font-size:clamp(2.1rem,4.4vw,3.4rem);font-weight:700}
+.eyebrow{
+  font-family:var(--sans);text-transform:uppercase;letter-spacing:4px;
+  font-size:.74rem;font-weight:700;color:var(--gold-dark);margin-bottom:14px;
+  display:inline-block;
+}
+.eyebrow--light{color:var(--gold)}
+
+.section{padding:clamp(72px,9vw,128px) 0}
+.section__head{max-width:680px;margin:0 auto clamp(42px,5vw,68px);text-align:center}
+.section__head p{color:var(--muted);margin-top:16px;font-size:1.06rem;font-weight:300}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 32px;border-radius:100px;font-family:var(--sans);font-weight:700;
+  font-size:.82rem;letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;
+  border:2px solid transparent;transition:all .3s var(--ease);white-space:nowrap;
+}
+.btn--gold{background:var(--gold);color:var(--green-deep);box-shadow:0 10px 26px rgba(232,136,74,.4)}
+.btn--gold:hover{background:var(--gold-dark);color:#fff;transform:translateY(-3px);box-shadow:0 16px 34px rgba(232,136,74,.5)}
+.btn--ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+.btn--ghost:hover{background:#fff;color:var(--green);transform:translateY(-3px)}
+.btn--green{background:var(--green);color:#fff}
+.btn--green:hover{background:var(--green-soft);transform:translateY(-3px)}
+.btn--sm{padding:11px 22px;font-size:.72rem}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:1000;padding:20px 0;
+  transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease);
+}
+.nav.solid{
+  background:rgba(245,240,232,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  padding:12px 0;box-shadow:var(--shadow-s);
+}
+.nav__inner{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;color:#fff;transition:color .4s var(--ease)}
+.nav.solid .logo{color:var(--green)}
+.logo__icon{width:48px;height:48px;display:grid;place-items:center;flex-shrink:0}
+.brandmark{width:100%;height:100%;display:block}
+.logo__text{display:flex;flex-direction:column;line-height:1.05}
+.logo__text b{font-family:var(--serif);font-size:1.4rem;font-weight:700;letter-spacing:.5px}
+.logo__text span{font-size:.58rem;letter-spacing:3px;text-transform:uppercase;opacity:.85}
+
+.nav__menu{display:flex;align-items:center;gap:34px}
+.nav__menu a:not(.btn){
+  color:rgba(255,255,255,.9);font-size:.82rem;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;position:relative;transition:color .25s var(--ease);
+}
+.nav__menu a:not(.btn)::after{
+  content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);transition:width .3s var(--ease);
+}
+.nav__menu a:not(.btn):hover::after{width:100%}
+.nav__menu a:not(.btn):hover{color:#fff}
+.nav.solid .nav__menu a:not(.btn){color:var(--text)}
+.nav.solid .nav__menu a:not(.btn):hover{color:var(--green)}
+
+.nav__toggle{display:none;background:none;border:0;cursor:pointer;font-size:1.5rem;color:#fff;padding:6px}
+.nav.solid .nav__toggle{color:var(--green)}
+
+/* ============================================================
+   HERO  (parallax + leaf particles)
+   ============================================================ */
+.hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;overflow:hidden;color:#fff}
+.hero__bg{position:absolute;inset:-12% 0;z-index:0;will-change:transform}
+.hero__bg img{width:100%;height:100%;object-fit:cover}
+.hero__bg::after{ /* color wash so the placeholder reads as lush jungle */
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(30,58,71,.55),rgba(20,42,52,.35));mix-blend-mode:multiply;
+}
+.hero__overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(20,42,52,.45) 0%,rgba(20,42,52,.30) 35%,rgba(20,42,52,.82) 100%);
+}
+.leaves{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.leaf{position:absolute;top:-8%;color:var(--leaf);opacity:.0;will-change:transform}
+
+.hero__content{position:relative;z-index:3;max-width:780px}
+.hero__content .eyebrow{color:var(--gold);letter-spacing:5px}
+.hero h1{
+  color:#fff;font-size:clamp(2.7rem,7vw,5.4rem);font-weight:800;margin:6px 0 22px;
+  text-shadow:0 3px 40px rgba(0,0,0,.35);
+}
+.hero p.lead{font-size:clamp(1.05rem,1.7vw,1.3rem);font-weight:300;max-width:560px;color:rgba(255,255,255,.94);margin-bottom:38px}
+.hero__cta{display:flex;gap:16px;flex-wrap:wrap}
+.hero__scroll{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.8);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hero__scroll i{animation:bob 1.8s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+@keyframes leafFall{
+  0%{transform:translateY(-10vh) translateX(0) rotate(0deg);opacity:0}
+  10%{opacity:.5}
+  90%{opacity:.5}
+  100%{transform:translateY(112vh) translateX(40px) rotate(360deg);opacity:0}
+}
+
+/* ============================================================
+   ABOUT / WELCOME
+   ============================================================ */
+.about{background:var(--ivory)}
+.about__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,5vw,84px);align-items:center}
+.about__text .eyebrow{margin-bottom:10px}
+.about__text h2{margin-bottom:18px}
+.about__text p{color:var(--muted);font-weight:300;margin-bottom:16px;font-size:1.05rem}
+.about__media{position:relative}
+.about__media img{border-radius:var(--radius-lg);box-shadow:var(--shadow-m);width:100%}
+.about__media .badge{
+  position:absolute;bottom:-26px;left:-26px;background:var(--green);color:#fff;
+  border-radius:var(--radius);padding:22px 26px;box-shadow:var(--shadow-m);text-align:center;
+}
+.about__media .badge b{font-family:var(--serif);font-size:2rem;color:var(--gold);display:block;line-height:1}
+.about__media .badge span{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;opacity:.9}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:clamp(54px,6vw,86px);text-align:center}
+.stat{padding:34px 18px;background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-s);border-bottom:3px solid var(--gold)}
+.stat b{font-family:var(--serif);font-size:2.8rem;color:var(--green);display:block;line-height:1}
+.stat span{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:8px;display:block}
+
+/* ============================================================
+   ROOMS (horizontal carousel)
+   ============================================================ */
+.rooms{background:var(--green);position:relative}
+.rooms .eyebrow{color:var(--gold)}
+.rooms h2,.rooms .section__head p{color:#fff}
+.rooms .section__head p{color:rgba(255,255,255,.78)}
+.carousel{position:relative}
+.carousel__track{
+  display:flex;gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:8px 4px 26px;scroll-behavior:smooth;
+  scrollbar-width:thin;scrollbar-color:var(--gold) transparent;
+}
+.carousel__track::-webkit-scrollbar{height:8px}
+.carousel__track::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
+.carousel__track::-webkit-scrollbar-track{background:rgba(255,255,255,.12);border-radius:10px}
+.room{
+  flex:0 0 330px;scroll-snap-align:start;background:var(--ivory);border-radius:var(--radius-lg);
+  overflow:hidden;box-shadow:var(--shadow-m);display:flex;flex-direction:column;
+}
+.room__img{position:relative;aspect-ratio:4/3;overflow:hidden}
+.room__img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.room:hover .room__img img{transform:scale(1.07)}
+.room__tag{position:absolute;top:14px;left:14px;background:var(--gold);color:var(--green-deep);font-size:.64rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:6px 13px;border-radius:100px}
+.room__body{padding:24px;display:flex;flex-direction:column;flex:1}
+.room__body h3{font-size:1.45rem;margin-bottom:4px}
+.room__beds{font-size:.8rem;color:var(--gold-dark);font-weight:700;letter-spacing:.5px;margin-bottom:12px;display:flex;gap:14px;flex-wrap:wrap}
+.room__beds i{margin-right:5px}
+.room__body p{font-size:.92rem;color:var(--muted);font-weight:300}
+.room__foot{margin-top:auto;padding-top:20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.room__price b{font-family:var(--serif);font-size:1.5rem;color:var(--green)}
+.room__price span{font-size:.78rem;color:var(--muted)}
+.carousel__btn{
+  position:absolute;top:38%;transform:translateY(-50%);z-index:5;width:50px;height:50px;border-radius:50%;
+  background:var(--gold);color:var(--green-deep);border:0;cursor:pointer;font-size:1rem;
+  box-shadow:var(--shadow-m);transition:all .25s var(--ease);display:grid;place-items:center;
+}
+.carousel__btn:hover{background:#fff;transform:translateY(-50%) scale(1.08)}
+.carousel__btn--prev{left:-22px}
+.carousel__btn--next{right:-22px}
+
+/* ============================================================
+   AMENITIES
+   ============================================================ */
+.amenities{background:var(--ivory)}
+.amenities__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.amenity{
+  background:var(--white);border-radius:var(--radius);padding:32px 24px;text-align:center;
+  box-shadow:var(--shadow-s);transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.amenity:hover{transform:translateY(-8px);box-shadow:var(--shadow-m)}
+.amenity__icon{
+  width:64px;height:64px;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;
+  background:var(--ivory-2);color:var(--green);font-size:1.5rem;transition:all .3s var(--ease);
+}
+.amenity:hover .amenity__icon{background:var(--gold);color:var(--green-deep);transform:rotate(-8deg)}
+.amenity h4{font-size:1.05rem;margin-bottom:5px}
+.amenity p{font-size:.84rem;color:var(--muted);font-weight:300}
+
+/* ============================================================
+   EXPERIENCES
+   ============================================================ */
+.experiences{background:var(--green-deep);position:relative}
+.experiences .eyebrow{color:var(--gold)}
+.experiences h2,.experiences .section__head p{color:#fff}
+.experiences .section__head p{color:rgba(255,255,255,.78)}
+.exp__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.exp{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:420px;display:flex;align-items:flex-end;box-shadow:var(--shadow-m)}
+.exp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.exp:hover img{transform:scale(1.09)}
+.exp::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,42,52,0) 30%,rgba(20,42,52,.9) 100%)}
+.exp__body{position:relative;z-index:2;padding:30px;color:#fff}
+.exp__body i{font-size:1.6rem;color:var(--gold);margin-bottom:12px;display:block}
+.exp__body h3{color:#fff;font-size:1.5rem;margin-bottom:8px}
+.exp__body p{font-size:.92rem;color:rgba(255,255,255,.85);font-weight:300}
+
+/* ============================================================
+   GALLERY (masonry)
+   ============================================================ */
+.gallery{background:var(--ivory)}
+.gallery__grid{columns:3;column-gap:18px}
+.gallery__item{break-inside:avoid;margin-bottom:18px;border-radius:var(--radius);overflow:hidden;position:relative;box-shadow:var(--shadow-s)}
+.gallery__item img{width:100%;transition:transform .7s var(--ease)}
+.gallery__item::after{
+  content:attr(data-label);position:absolute;inset:0;display:flex;align-items:flex-end;padding:18px;
+  color:#fff;font-family:var(--serif);font-size:1.1rem;font-weight:600;
+  background:linear-gradient(180deg,rgba(20,42,52,0) 55%,rgba(20,42,52,.78));
+  opacity:0;transition:opacity .35s var(--ease);
+}
+.gallery__item:hover img{transform:scale(1.08)}
+.gallery__item:hover::after{opacity:1}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testimonials{background:var(--green)}
+.testimonials .eyebrow{color:var(--gold)}
+.testimonials h2{color:#fff}
+.tst__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.tst{background:var(--ivory);border-radius:var(--radius-lg);padding:36px 30px;box-shadow:var(--shadow-m);position:relative}
+.tst__stars{color:var(--gold);font-size:.95rem;margin-bottom:14px;letter-spacing:2px}
+.tst__quote{font-family:var(--serif);font-style:italic;font-size:1.08rem;color:var(--text);line-height:1.6;margin-bottom:20px}
+.tst__author{display:flex;align-items:center;gap:14px}
+.tst__avatar{width:46px;height:46px;border-radius:50%;background:var(--green);color:var(--gold);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:1.1rem}
+.tst__author b{display:block;font-size:.95rem;color:var(--green);font-family:var(--sans)}
+.tst__author span{font-size:.8rem;color:var(--muted)}
+.tst::before{content:"\201C";position:absolute;top:6px;right:24px;font-family:var(--serif);font-size:5rem;color:var(--gold);opacity:.22;line-height:1}
+
+/* ============================================================
+   LOCATION
+   ============================================================ */
+.location{background:var(--ivory)}
+.location__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,4vw,56px);align-items:stretch}
+.location__info .eyebrow{margin-bottom:10px}
+.location__info h2{margin-bottom:18px}
+.info-list{display:grid;gap:22px;margin-top:8px}
+.info-list li{display:flex;gap:16px;align-items:flex-start}
+.info-list .ic{width:48px;height:48px;flex-shrink:0;border-radius:50%;background:var(--green);color:var(--gold);display:grid;place-items:center;font-size:1.1rem}
+.info-list b{display:block;color:var(--green);font-size:1rem;margin-bottom:2px}
+.info-list p,.info-list a{color:var(--muted);font-size:.94rem;font-weight:300}
+.info-list a:hover{color:var(--gold-dark)}
+.checkin{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.checkin div{flex:1;min-width:130px;background:var(--white);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow-s);border-left:3px solid var(--gold)}
+.checkin small{font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.checkin b{display:block;font-family:var(--serif);font-size:1.5rem;color:var(--green)}
+.map{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-m);min-height:460px}
+.map iframe{width:100%;height:100%;min-height:460px;border:0;display:block;filter:saturate(1.05)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{background:var(--green-deep);color:rgba(255,255,255,.8)}
+.footer__top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding:72px 0 48px}
+.footer .logo{color:#fff;margin-bottom:18px}
+.footer__col p{font-weight:300;font-size:.92rem;max-width:320px;margin-bottom:18px}
+.footer__col h4{color:#fff;font-size:1.05rem;margin-bottom:18px;font-family:var(--sans);letter-spacing:.5px}
+.footer__col ul{display:grid;gap:11px}
+.footer__col ul a{font-size:.92rem;font-weight:300;color:rgba(255,255,255,.78);transition:color .25s var(--ease)}
+.footer__col ul a:hover{color:var(--gold)}
+.footer__col ul a i{width:20px;color:var(--gold)}
+.socials{display:flex;gap:12px;margin-top:6px}
+.socials a{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);display:grid;place-items:center;color:#fff;transition:all .25s var(--ease)}
+.socials a:hover{background:var(--gold);border-color:var(--gold);color:var(--green-deep);transform:translateY(-3px)}
+.footer__bar{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55)}
+
+/* ============================================================
+   FLOATING BOOK BUTTON
+   ============================================================ */
+.book-float{
+  position:fixed;right:24px;bottom:24px;z-index:900;display:inline-flex;align-items:center;gap:10px;
+  background:var(--gold);color:var(--green-deep);padding:15px 24px;border-radius:100px;font-weight:700;
+  font-size:.8rem;letter-spacing:1px;text-transform:uppercase;box-shadow:0 12px 30px rgba(232,136,74,.5);
+  transition:all .3s var(--ease);animation:pulse 2.6s infinite;
+}
+.book-float:hover{background:var(--green);color:#fff;transform:translateY(-3px)}
+@keyframes pulse{0%{box-shadow:0 12px 30px rgba(232,136,74,.5)}50%{box-shadow:0 12px 38px rgba(232,136,74,.85)}100%{box-shadow:0 12px 30px rgba(232,136,74,.5)}}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:960px){
+  .nav__menu{
+    position:fixed;inset:0 0 0 auto;width:min(80vw,330px);background:var(--green);
+    flex-direction:column;align-items:flex-start;justify-content:center;gap:26px;padding:48px;
+    transform:translateX(100%);transition:transform .4s var(--ease);box-shadow:-12px 0 40px rgba(0,0,0,.3);
+  }
+  .nav__menu.open{transform:translateX(0)}
+  .nav__menu a:not(.btn){color:#fff !important;font-size:1.05rem}
+  .nav__toggle{display:block;z-index:1001}
+  .about__grid,.location__grid{grid-template-columns:1fr}
+  .about__media{max-width:560px;margin:0 auto}
+  .about__media .badge{left:0}
+  .amenities__grid{grid-template-columns:repeat(3,1fr)}
+  .exp__grid,.tst__grid{grid-template-columns:1fr}
+  .gallery__grid{columns:2}
+  .footer__top{grid-template-columns:1fr 1fr}
+  .carousel__btn{display:none}
+}
+@media (max-width:600px){
+  .stats{grid-template-columns:1fr}
+  .amenities__grid{grid-template-columns:repeat(2,1fr)}
+  .gallery__grid{columns:1}
+  .footer__top{grid-template-columns:1fr}
+  .hero__cta{flex-direction:column}
+  .hero__cta .btn{width:100%}
+  .checkin div{min-width:0}
+  .book-float span{display:none}
+  .book-float{padding:16px;border-radius:50%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero__bg{transform:none !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="#home" class="logo" aria-label="Hidden Oasis Resort home">
+      <span class="logo__icon"><svg class="brandmark" viewBox="0 0 120 124" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><clipPath id="ho1"><ellipse cx="62" cy="62" rx="28" ry="36"/></clipPath></defs><ellipse cx="60" cy="62" rx="54" ry="57" fill="#1e3a47"/><ellipse cx="62" cy="62" rx="28" ry="36" fill="#fff"/><g clip-path="url(#ho1)"><ellipse cx="64" cy="92" rx="34" ry="27" fill="#e8884a"/><path d="M28 100 Q64 84 100 100 L100 124 L28 124 Z" fill="#3a6b4f"/><g fill="#356048" transform="translate(54 34)"><path d="M0 4 C-13 -7 -27 -6 -34 5 Q-18 2 -2 14 Z"/><path d="M1 3 C-7 -13 -19 -19 -31 -18 Q-17 -7 0 10 Z"/><path d="M3 2 C2 -13 9 -25 21 -29 Q15 -14 8 6 Z"/><path d="M4 4 C13 -5 27 -6 35 3 Q19 3 8 15 Z"/></g></g></svg></span>
+      <span class="logo__text"><b>Hidden Oasis</b><span>Hotel Resort + Café Bar</span></span>
+    </a>
+    <nav class="nav__menu" id="navMenu" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#experiences">Experiences</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.facebook.com/p/Hidden-Oasis-61570854084881" target="_blank" rel="noopener" class="btn btn--gold btn--sm">Book Now</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="hero__bg" id="heroBg">
+    <!-- Replace with a real wide resort/jungle photo -->
+    <img src="images/exterior-night.webp" alt="Hidden Oasis Resort lit up at night, surrounded by tropical greenery" />
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="leaves" id="leaves" aria-hidden="true"></div>
+
+  <div class="container hero__content">
+    <span class="eyebrow">Gingoog City &middot; Misamis Oriental &middot; Philippines</span>
+    <h1>Hidden Oasis Resort</h1>
+    <p class="lead">Your secret paradise in the heart of Mindanao — a secluded boutique escape of lush gardens, a tropical pool, and warm island hospitality, just minutes from Tiklas Falls.</p>
+    <div class="hero__cta">
+      <a href="#rooms" class="btn btn--gold"><i class="fa-solid fa-bed"></i> Explore Rooms</a>
+      <a href="https://www.facebook.com/p/Hidden-Oasis-61570854084881" target="_blank" rel="noopener" class="btn btn--ghost"><i class="fa-brands fa-facebook-messenger"></i> Book Now</a>
+    </div>
+  </div>
+
+  <a href="#about" class="hero__scroll" aria-label="Scroll down">
+    <span>Discover</span><i class="fa-solid fa-chevron-down"></i>
+  </a>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section about" id="about">
+  <div class="container about__grid">
+    <div class="about__text reveal">
+      <span class="eyebrow">Welcome to the Oasis</span>
+      <h2 class="h-section">A hidden gem, far from the noise</h2>
+      <p>Tucked away on Naranjita Street in Gingoog City, Hidden Oasis Resort is a tranquil retreat designed for travelers who crave peace, nature, and genuine comfort. Lush gardens, a refreshing pool, and a cozy on-site café bar make it the perfect place to slow down and breathe.</p>
+      <p>With just nine thoughtfully appointed rooms, every stay feels personal. Our multilingual team is here to make you feel at home, whether you're escaping the city for the weekend or chasing waterfalls with the whole family.</p>
+      <a href="#experiences" class="btn btn--green" style="margin-top:10px"><i class="fa-solid fa-compass"></i> Our Experiences</a>
+    </div>
+    <div class="about__media reveal">
+      <img src="images/lounge.webp" alt="Cozy rattan lounge area at Hidden Oasis Resort" />
+      <div class="badge"><b>4.5★</b><span>Guest Rated</span></div>
+    </div>
+  </div>
+
+  <div class="container stats">
+    <div class="stat reveal"><b>9</b><span>Cozy Rooms</span></div>
+    <div class="stat reveal"><b>Est. 2024</b><span>Boutique Resort</span></div>
+    <div class="stat reveal"><b>5 min</b><span>To Tiklas Falls</span></div>
+  </div>
+</section>
+
+<!-- ===================== ROOMS ===================== -->
+<section class="section rooms" id="rooms">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow eyebrow--light">Stay With Us</span>
+      <h2 class="h-section">Rooms made for resting</h2>
+      <p>Every room is air-conditioned with a private bathroom, refrigerator, work desk, flat-screen TV, and a cozy sofa — plus à la carte breakfast to start your day. <em>(Rates are indicative — message us for current pricing.)</em></p>
+    </div>
+
+    <div class="carousel reveal">
+      <button class="carousel__btn carousel__btn--prev" id="prevBtn" aria-label="Previous rooms"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="carousel__track" id="track">
+
+        <article class="room">
+          <div class="room__img">
+            <img src="images/room-king.webp" alt="Deluxe Master Room with a king bed" />
+            <span class="room__tag">Most Popular</span>
+          </div>
+          <div class="room__body">
+            <h3>Deluxe Master Room</h3>
+            <div class="room__beds"><span><i class="fa-solid fa-bed"></i>1 King Bed</span><span><i class="fa-solid fa-user"></i>Sleeps 2</span></div>
+            <p>Our most spacious room — a plush king bed, smart TV, and a calm, modern finish for the perfect night's sleep.</p>
+            <div class="room__foot">
+              <div class="room__price"><b>₱2,800</b><span>/ night</span></div>
+              <a href="https://www.facebook.com/p/Hidden-Oasis-61570854084881" target="_blank" rel="noopener" class="btn btn--green btn--sm">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="room">
+          <div class="room__img">
+            <img src="images/room-loft.webp" alt="Family Loft Room with two beds and wood-beam ceiling" />
+            <span class="room__tag">Family Favorite</span>
+          </div>
+          <div class="room__body">
+            <h3>Family Loft Room</h3>
+            <div class="room__beds"><span><i class="fa-solid fa-bed"></i>2 Beds</span><span><i class="fa-solid fa-user"></i>Sleeps 4</span></div>
+            <p>A charming loft with soaring wood-beam ceilings and two comfy beds — plenty of room for the whole family.</p>
+            <div class="room__foot">
+              <div class="room__price"><b>₱3,500</b><span>/ night</span></div>
+              <a href="https://www.facebook.com/p/Hidden-Oasis-61570854084881" target="_blank" rel="noopener" class="btn btn--green btn--sm">Book</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="room" style="background:var(--navy)">
+          <div class="room__body" style="justify-content:center;align-items:center;text-align:center;gap:14px">
+            <i class="fa-solid fa-bed" style="font-size:2rem;color:var(--orange)"></i>
+            <h3 style="color:#fff">9 Cozy Rooms in Total</h3>
+            <p style="color:rgba(255,255,255,.82)">More room types are available — from cozy doubles to family rooms. Message us for the full list and current rates.</p>
+            <a href="https://www.facebook.com/p/Hidden-Oasis-61570854084881" target="_blank" rel="noopener" class="btn btn--gold btn--sm">Ask on Facebook</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <button class="carousel__btn carousel__btn--next" id="nextBtn" aria-label="Next rooms"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AMENITIES ===================== -->
+<section class="section amenities" id="amenities">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow">Comfort &amp; Convenience</span>
+      <h2 class="h-section">Everything you need to unwind</h2>
+      <p>Thoughtful touches throughout the property — so you can simply relax.</p>
+    </div>
+    <div class="amenities__grid">
+      <div class="amenity reveal"><div class="amenity__icon"><i class="fa-solid fa-wifi"></i></div><h4>Free Wi-Fi</h4><p>Complimentary internet across the property.</p></div>
+      <div class="amenity reveal"><div class="amenity__icon"><i class="fa-solid fa-snowflake"></i></div><h4>Air-Conditioned</h4><p>Cool, quiet comfort in every room.</p></div>
+      <div class="amenity reveal"><div class="amenity__icon"><i class="fa-solid fa-shower"></i></div><h4>Private Bath &amp; Bidet</h4><p>En-suite with free toiletries.</p></div>
+      <div class="amenity reveal"><div class="amenity__icon"><i class="fa-solid fa-mug-hot"></i></div><h4>Refrigerator</h4><p>In-room mini fridge to keep drinks cold.</p></div>
+      <div class="amenity reveal"><div class="amenity__icon"><i class="fa-solid fa-laptop"></i></div><h4>Work Desk</h4><p>Business-traveler friendly workspace.</p></div>
+      <div class="amenity reveal"><div class="amenity__icon"><i class="fa-solid fa-tv"></i></div><h4>Flat-Screen TV</h4><p>Unwind with a movie after a day out.</p></div>
+      <div class="amenity reveal"><div class="amenity__icon"><i class="fa-solid fa-couch"></i></div><h4>Cozy Sofa</h4><p>A comfy spot to relax in your room.</p></div>
+      <div class="amenity reveal"><div class="amenity__icon"><i class="fa-solid fa-square-parking"></i></div><h4>Free Parking</h4><p>Secure private on-site parking.</p></div>
+      <div class="amenity reveal"><div class="amenity__icon"><i class="fa-solid fa-utensils"></i></div><h4>À la Carte Breakfast</h4><p>Freshly prepared to start your morning.</p></div>
+      <div class="amenity reveal"><div class="amenity__icon"><i class="fa-solid fa-mug-saucer"></i></div><h4>Café Bar On-Site</h4><p>Great coffee, drinks &amp; bites all day.</p></div>
+      <div class="amenity reveal"><div class="amenity__icon"><i class="fa-solid fa-bell-concierge"></i></div><h4>Multilingual Staff</h4><p>Friendly reception, happy to help.</p></div>
+      <div class="amenity reveal"><div class="amenity__icon"><i class="fa-solid fa-children"></i></div><h4>Family Friendly</h4><p>Warm and welcoming for kids.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERIENCES ===================== -->
+<section class="section experiences" id="experiences">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow eyebrow--light">Things to Do</span>
+      <h2 class="h-section">Experiences &amp; escapes</h2>
+      <p>Adventure and stillness, all within easy reach of the resort.</p>
+    </div>
+    <div class="exp__grid">
+      <article class="exp reveal">
+        <img src="https://placehold.co/600x600/2c5260/f5f0e8?text=Tiklas+Falls" alt="Tiklas Falls near Hidden Oasis Resort" />
+        <div class="exp__body">
+          <i class="fa-solid fa-water"></i>
+          <h3>Tiklas Falls</h3>
+          <p>Just a 5-minute drive away — a refreshing cascade tucked into the Mindanao forest, perfect for a morning dip.</p>
+        </div>
+      </article>
+      <article class="exp reveal">
+        <img src="images/cafe.webp" alt="On-site café bar dining area" />
+        <div class="exp__body">
+          <i class="fa-solid fa-martini-glass-citrus"></i>
+          <h3>Café &amp; Bar</h3>
+          <p>Sip great coffee by day and unwind with cocktails by night at our cozy on-site café bar.</p>
+        </div>
+      </article>
+      <article class="exp reveal">
+        <img src="images/garden.webp" alt="Garden grounds for nature and relaxation" />
+        <div class="exp__body">
+          <i class="fa-solid fa-spa"></i>
+          <h3>Nature &amp; Relaxation</h3>
+          <p>Stroll the gardens, lounge by the pool, and let the sounds of nature melt the city away.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="section gallery" id="gallery">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow">A Glimpse of Paradise</span>
+      <h2 class="h-section">The gallery</h2>
+      <p>A peek around the oasis — our rooms, café bar, and lush garden grounds.</p>
+    </div>
+    <div class="gallery__grid">
+      <div class="gallery__item reveal" data-label="The Resort at Night"><img src="images/exterior-night.webp" alt="Hidden Oasis Resort exterior at night" /></div>
+      <div class="gallery__item reveal" data-label="Comfortable Rooms"><img src="images/room-king.webp" alt="Guest room with a king bed" /></div>
+      <div class="gallery__item reveal" data-label="Café Dining"><img src="images/cafe.webp" alt="Café dining area" /></div>
+      <div class="gallery__item reveal" data-label="Café Eats"><img src="images/food-burger.jpg" alt="Burgers and fries from the café bar" /></div>
+      <div class="gallery__item reveal" data-label="Family Loft"><img src="images/room-loft.webp" alt="Family loft room with two beds" /></div>
+      <div class="gallery__item reveal" data-label="Cozy Lounge"><img src="images/lounge.webp" alt="Rattan lounge seating area" /></div>
+      <div class="gallery__item reveal" data-label="Signature Drinks"><img src="images/drink-blue.jpg" alt="Signature cocktail at the café bar" /></div>
+      <div class="gallery__item reveal" data-label="Function Hall"><img src="images/hall.webp" alt="Spacious function hall" /></div>
+      <div class="gallery__item reveal" data-label="Garden Grounds"><img src="images/garden.webp" alt="Garden grounds with gazebo" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section testimonials">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow eyebrow--light">Guest Love</span>
+      <h2 class="h-section">What our guests say</h2>
+    </div>
+    <div class="tst__grid">
+      <blockquote class="tst reveal">
+        <div class="tst__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="tst__quote">"Clean, modern rooms and the friendliest staff. The pool was perfect for the kids and breakfast was delicious. We'll definitely be back."</p>
+        <div class="tst__author"><div class="tst__avatar">M</div><div><b>Maria L.</b><span>Family Getaway</span></div></div>
+      </blockquote>
+      <blockquote class="tst reveal">
+        <div class="tst__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="tst__quote">"A real hidden gem. Peaceful, beautifully kept, and excellent value for money. The café food was a lovely surprise."</p>
+        <div class="tst__author"><div class="tst__avatar">J</div><div><b>James R.</b><span>Weekend Escape</span></div></div>
+      </blockquote>
+      <blockquote class="tst reveal">
+        <div class="tst__stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="tst__quote">"Spacious rooms, big flat-screen TV, spotless bathroom. A homey, relaxing stay just minutes from the falls."</p>
+        <div class="tst__author"><div class="tst__avatar">A</div><div><b>Andrea S.</b><span>Solo Traveler</span></div></div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LOCATION / CONTACT ===================== -->
+<section class="section location" id="contact">
+  <div class="container location__grid">
+    <div class="location__info reveal">
+      <span class="eyebrow">Find Us</span>
+      <h2 class="h-section">Your way to the oasis</h2>
+      <ul class="info-list">
+        <li>
+          <span class="ic"><i class="fa-solid fa-location-dot"></i></span>
+          <div><b>Address</b><p>Purok 2, Naranjita St., Paz Village,<br />Brgy. 24-A, Gingoog City, Misamis Oriental,<br />Northern Mindanao, Philippines</p></div>
+        </li>
+        <li>
+          <span class="ic"><i class="fa-solid fa-plane-arrival"></i></span>
+          <div><b>Nearest Airport</b><p>Butuan Airport — approx. 1 hr 23 mins drive</p></div>
+        </li>
+        <li>
+          <span class="ic"><i class="fa-solid fa-phone"></i></span>
+          <div><b>Call / Text</b><p><a href="tel:+639543372811">0954 337 2811</a></p></div>
+        </li>
+        <li>
+          <span class="ic"><i class="fa-solid fa-envelope"></i></span>
+          <div><b>Email</b><p><a href="mailto:hiddenoasisresort@gmail.com">hiddenoasisresort@gmail.com</a></p></div>
+        </li>
+      </ul>
+
+      <div class="checkin">
+        <div><small>Check-in</small><b>2:00 PM</b></div>
+        <div><small>Check-out</small><b>11:00 AM</b></div>
+      </div>
+
+      <a href="https://www.facebook.com/p/Hidden-Oasis-61570854084881" target="_blank" rel="noopener" class="btn btn--gold" style="margin-top:28px"><i class="fa-brands fa-facebook-messenger"></i> Reserve via Facebook</a>
+    </div>
+
+    <div class="map reveal">
+      <iframe
+        title="Map to Hidden Oasis Resort, Gingoog City"
+        src="https://www.google.com/maps?q=8.8226635,125.0979409&z=16&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container footer__top">
+    <div class="footer__col">
+      <a href="#home" class="logo">
+        <span class="logo__icon"><svg class="brandmark" viewBox="0 0 120 124" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><clipPath id="ho2"><ellipse cx="62" cy="62" rx="28" ry="36"/></clipPath></defs><ellipse cx="60" cy="62" rx="54" ry="57" fill="#1e3a47"/><ellipse cx="62" cy="62" rx="28" ry="36" fill="#fff"/><g clip-path="url(#ho2)"><ellipse cx="64" cy="92" rx="34" ry="27" fill="#e8884a"/><path d="M28 100 Q64 84 100 100 L100 124 L28 124 Z" fill="#3a6b4f"/><g fill="#356048" transform="translate(54 34)"><path d="M0 4 C-13 -7 -27 -6 -34 5 Q-18 2 -2 14 Z"/><path d="M1 3 C-7 -13 -19 -19 -31 -18 Q-17 -7 0 10 Z"/><path d="M3 2 C2 -13 9 -25 21 -29 Q15 -14 8 6 Z"/><path d="M4 4 C13 -5 27 -6 35 3 Q19 3 8 15 Z"/></g></g></svg></span>
+        <span class="logo__text"><b>Hidden Oasis</b><span>Hotel Resort + Café Bar</span></span>
+      </a>
+      <p>Your secret paradise in the heart of Mindanao — a secluded boutique resort & café bar in Gingoog City, just minutes from Tiklas Falls.</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/p/Hidden-Oasis-61570854084881" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/hiddenoasisph" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer__col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#experiences">Experiences</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Get in Touch</h4>
+      <ul>
+        <li><a href="tel:+639543372811"><i class="fa-solid fa-phone"></i> 0954 337 2811</a></li>
+        <li><a href="mailto:hiddenoasisresort@gmail.com"><i class="fa-solid fa-envelope"></i> hiddenoasisresort@gmail.com</a></li>
+        <li><a href="https://www.google.com/maps/place/Hidden+Oasis+Resort/@8.8226635,125.0979409,16z" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i> Gingoog City</a></li>
+        <li><a href="https://www.facebook.com/p/Hidden-Oasis-61570854084881" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+        <li><a href="https://www.instagram.com/hiddenoasisph" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> @hiddenoasisph</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer__bar">
+    <span>&copy; <span id="year"></span> Hidden Oasis Resort. All rights reserved.</span>
+    <span>Made with <i class="fa-solid fa-heart" style="color:var(--gold)"></i> in Gingoog City</span>
+  </div>
+</footer>
+
+<!-- Floating Book button -->
+<a href="https://www.facebook.com/p/Hidden-Oasis-61570854084881" target="_blank" rel="noopener" class="book-float"><i class="fa-solid fa-calendar-check"></i><span>Book Now</span></a>
+
+<script>
+/* ============================================================
+   HIDDEN OASIS RESORT — interactions
+   ============================================================ */
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- Sticky navbar ---- */
+  var nav = document.getElementById("nav");
+  function navScroll(){ nav.classList.toggle("solid", window.scrollY > 40); }
+  window.addEventListener("scroll", navScroll, {passive:true}); navScroll();
+
+  /* ---- Mobile menu ---- */
+  var toggle = document.getElementById("navToggle");
+  var menu = document.getElementById("navMenu");
+  toggle.addEventListener("click", function(){
+    var open = menu.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+  });
+  menu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){
+      menu.classList.remove("open");
+      toggle.setAttribute("aria-expanded","false");
+      toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    });
+  });
+
+  /* ---- Hero parallax ---- */
+  var heroBg = document.getElementById("heroBg");
+  if(!reduce){
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY;
+      if(y < window.innerHeight){ heroBg.style.transform = "translateY(" + (y * 0.4) + "px)"; }
+    }, {passive:true});
+  }
+
+  /* ---- Floating leaf particles ---- */
+  var leaves = document.getElementById("leaves");
+  if(leaves && !reduce){
+    var COUNT = 14;
+    for(var i=0;i<COUNT;i++){
+      var leaf = document.createElement("i");
+      leaf.className = "fa-solid fa-leaf leaf";
+      var size = 12 + Math.floor(Math.random()*22);     // 12–34px
+      var dur  = 9 + Math.random()*10;                  // 9–19s
+      var delay = -Math.random()*18;                    // stagger
+      leaf.style.left = (Math.random()*100) + "%";
+      leaf.style.fontSize = size + "px";
+      leaf.style.opacity = (0.12 + Math.random()*0.25).toFixed(2);
+      leaf.style.animation = "leafFall " + dur.toFixed(1) + "s linear " + delay.toFixed(1) + "s infinite";
+      leaves.appendChild(leaf);
+    }
+  }
+
+  /* ---- Rooms carousel arrows ---- */
+  var track = document.getElementById("track");
+  var prev = document.getElementById("prevBtn");
+  var next = document.getElementById("nextBtn");
+  function step(){ var card = track.querySelector(".room"); return card ? card.getBoundingClientRect().width + 26 : 340; }
+  if(prev && next && track){
+    prev.addEventListener("click", function(){ track.scrollBy({left:-step(), behavior:"smooth"}); });
+    next.addEventListener("click", function(){ track.scrollBy({left: step(), behavior:"smooth"}); });
+  }
+
+  /* ---- Scroll reveal ---- */
+  var items = document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12, rootMargin:"0px 0px -40px 0px"});
+    // stagger items that share a parent grid
+    items.forEach(function(el){
+      var sibs = Array.prototype.slice.call(el.parentElement.children).filter(function(c){return c.classList.contains("reveal");});
+      var idx = sibs.indexOf(el);
+      if(idx > 0 && sibs.length > 1) el.style.transitionDelay = Math.min(idx*0.08, 0.4) + "s";
+      io.observe(el);
+    });
+  } else {
+    items.forEach(function(el){ el.classList.add("visible"); });
+  }
+
+  /* ---- Footer year ---- */
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
