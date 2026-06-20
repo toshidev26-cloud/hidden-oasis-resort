@@ -16,7 +16,7 @@ Everything (HTML + CSS + JS) lives in **`index.html`**. No build tools, no frame
 - **Masonry gallery** with hover-zoom captions
 - **Testimonials** with 5-star ratings
 - Embedded **Google Map** + full address & check-in/out
-- Floating **Book Now** button → Facebook
+- **Booking request form** — dates, room, guests & contact, emailed straight to the resort (with a Messenger fallback) + floating Book Now button
 - **Scroll-reveal** animations throughout · mobile-first (looks great at 375px)
 - Respects `prefers-reduced-motion`
 
@@ -32,7 +32,16 @@ Just double-click `index.html`. (Optional: a tiny `serve.ps1` PowerShell static 
 5. **Confirm socials** — Facebook `facebook.com/p/Hidden-Oasis-61570854084881` and Instagram `@hiddenoasisph` are wired in; update if they change.
 6. **Logo (optional)** — the navbar/footer currently use a built-in **inline SVG recreation** of your logo (so the site stays a single file with no broken images). To use your exact logo file instead: save it as `images/logo.png`, then replace the `<svg class="brandmark">…</svg>` block in the navbar and footer with `<img class="brandmark" src="images/logo.png" alt="Hidden Oasis Resort">`. The whole colour scheme is already matched to your logo.
 
-Want the booking buttons to email you instead of opening Facebook? Use a free form service like [Formspree](https://formspree.io) — wrap the contact area in a `<form action="https://formspree.io/f/XXXX" method="POST">`.
+## 📬 Booking form — one-time setup (free)
+
+The **Request a Booking** section emails each request straight to an inbox using [Web3Forms](https://web3forms.com) (free, no backend, 250 submissions/month). To switch it on:
+
+1. Go to <https://web3forms.com>, enter the email that should **receive** the bookings (e.g. `hiddenoasisresort@gmail.com`, or your own while testing).
+2. Copy the **Access Key** they give you.
+3. In `index.html`, find `YOUR_WEB3FORMS_ACCESS_KEY` and replace it with that key.
+4. Commit & push — done. Send yourself a test request to confirm.
+
+Until the key is added, the booking button still works — it gracefully falls back to opening Facebook Messenger. (Note: real-time availability + online payment would need a paid booking engine like Lodgify/Sirvoy; this free form captures requests for you to confirm manually.)
 
 ## 🌐 Publishing (free)
 
